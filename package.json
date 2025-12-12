@@ -1,0 +1,42 @@
+{
+	"name": "voice-crypt-bot",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"check": "biome check --write ."
+	},
+	"dependencies": {
+		"@mastra/core": "^0.24.8",
+		"@nktkas/hyperliquid": "^0.29.1",
+		"@radix-ui/react-scroll-area": "^1.2.10",
+		"@radix-ui/react-slot": "^1.1.0",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.1",
+		"ethers": "^6.16.0",
+		"lucide-react": "^0.560.0",
+		"next": "^16.0.10",
+		"next-themes": "^0.4.6",
+		"react": "^19.2.3",
+		"react-dom": "^19.2.3",
+		"sonner": "^2.0.7",
+		"tailwind-merge": "^3.4.0",
+		"tailwindcss-animate": "^1.0.7",
+		"zod": "^4.1.13"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.8",
+		"@tailwindcss/postcss": "^4.0.0-alpha.32",
+		"@types/node": "^20.14.0",
+		"@types/react": "^19.2.7",
+		"@types/react-dom": "^19.2.3",
+		"eslint": "^8.57.0",
+		"eslint-config-next": "^16.0.10",
+		"postcss": "^8.4.38",
+		"tailwindcss": "4.0.0-alpha.32",
+		"typescript": "^5.5.0"
+	}
+}

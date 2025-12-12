@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Cyberpunk Theme - Dark Base with Light Text */
+    --background: 220 13% 9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 220 13% 12%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Very Light Gray Primary */
+    --primary: 0 0% 90%;
+    --primary-foreground: 220 13% 9%;
+    
+    /* Light Gray Secondary */
+    --secondary: 0 0% 80%;
+    --secondary-foreground: 220 13% 9%;
+    
+    --muted: 220 13% 18%;
+    --muted-foreground: 0 0% 70%;
+    
+    /* Light Gray for Buy */
+    --accent: 0 0% 85%;
+    --accent-foreground: 220 13% 9%;
+    
+    /* Medium Gray for Sell */
+    --destructive: 0 0% 65%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 35%;
+    --input: 0 0% 30%;
+    --ring: 0 0% 90%;
+    --radius: 0.5rem;
+    
+    /* Grayscale Colors */
+    --gray-light: 0 0% 90%;
+    --gray-medium: 0 0% 80%;
+    --gray-dark: 0 0% 65%;
+    --gradient-start: 0 0% 90%;
+    --gradient-end: 0 0% 80%;
+  }
+
+  .dark {
+    /* Already dark by default */
+    --background: 220 13% 9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 220 13% 12%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 0 0% 90%;
+    --primary-foreground: 220 13% 9%;
+    
+    --secondary: 0 0% 80%;
+    --secondary-foreground: 220 13% 9%;
+    
+    --muted: 220 13% 18%;
+    --muted-foreground: 0 0% 70%;
+    
+    --accent: 0 0% 85%;
+    --accent-foreground: 220 13% 9%;
+    
+    --destructive: 0 0% 65%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 35%;
+    --input: 0 0% 30%;
+    --ring: 0 0% 90%;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+/* Cyberpunk Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(180, 180, 180, 0.3), 0 0 40px rgba(180, 180, 180, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(180, 180, 180, 0.5), 0 0 60px rgba(180, 180, 180, 0.3);
+  }
+}
+
+@keyframes neon-flicker {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  50% {
+    opacity: 0.9;
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Cyberpunk Glassmorphism */
+.glass {
+  background: rgba(0, 20, 30, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(180, 180, 180, 0.2);
+  box-shadow: 0 0 20px rgba(180, 180, 180, 0.1);
+}
+
+.dark .glass {
+  background: rgba(0, 20, 30, 0.8);
+  border: 1px solid rgba(180, 180, 180, 0.3);
+  box-shadow: 0 0 30px rgba(180, 180, 180, 0.15);
+}
+
+/* Neon Gradient Background */
+.gradient-bg {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a0a1e 50%, #0a1e1a 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+  position: relative;
+}
+
+.gradient-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(180, 180, 180, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(180, 180, 180, 0.03) 3px
+    );
+  pointer-events: none;
+  animation: scan-line 8s linear infinite;
+}
+
+/* Neon Text Effect */
+.neon-text {
+  color: hsl(0 0% 90%);
+  text-shadow: 
+    0 0 10px hsl(0 0% 90%),
+    0 0 20px hsl(0 0% 90%);
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+
+/* Smooth Transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Cyberpunk Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+  border-left: 1px solid hsl(var(--border));
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--secondary)));
+  border-radius: 5px;
+  box-shadow: 0 0 10px hsl(var(--primary));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 20px hsl(var(--primary)), 0 0 30px hsl(var(--secondary));
+}
+
+/* Grid Pattern */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(180, 180, 180, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 180, 180, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+
